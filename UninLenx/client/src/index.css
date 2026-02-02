@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+
+  /* Dark Theme Base */
+  --background: 240 10% 4%;
+  --foreground: 0 0% 98%;
+
+  /* Neon Accent - Electric Purple/Blue */
+  --primary: 262 83% 58%;
+  --primary-foreground: 210 40% 98%;
+  
+  --secondary: 240 4% 16%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 240 4% 16%;
+  --muted-foreground: 240 5% 65%;
+
+  --accent: 262 83% 58%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 240 4% 16%;
+  --input: 240 4% 16%;
+  --ring: 262 83% 58%;
+  
+  --neon: 262 83% 58%;
+  --neon-hover: 262 90% 65%;
+
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+.glass-card {
+  @apply bg-secondary/30 backdrop-blur-md border border-white/5;
+}
+
+.neon-glow {
+  box-shadow: 0 0 20px -5px hsl(var(--neon) / 0.5);
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-purple-400;
+}
